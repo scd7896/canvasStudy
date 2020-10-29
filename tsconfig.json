@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./public",
+    "sourceMap": true,
+    "module": "esnext",
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "typeRoots": ["./src/types", "./action"]
+  },
+  "exclude": ["node_modules"]
+}
