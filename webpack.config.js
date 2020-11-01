@@ -1,33 +1,34 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require("fs");
+const path = require("path");
 module.exports = {
 	entry: {
 		first: path.resolve(__dirname, "src/rectTutorial/index.ts"),
 		mangdel: path.resolve(__dirname, "src/rectTutorial/MangDel/mangDel.ts"),
 		ball: path.resolve(__dirname, "src/rectTutorial/Ball/ball.ts"),
-		formuler: path.resolve(__dirname, "src/rectTutorial/Formuler/formuler.ts")
+		formuler: path.resolve(__dirname, "src/rectTutorial/Formuler/formuler.ts"),
+		drawer: path.resolve(__dirname, "src/rectTutorial/Drawer/drawer.ts"),
 	},
 	resolve: {
-    extensions: ['.ts', '.js', '.json', '.css', '.scss']
-	},	
+		extensions: [".ts", ".js", ".json", ".css", ".scss"],
+	},
 	module: {
 		rules: [
 			{
 				test: /\.ts$/,
-				loader: "babel-loader"
+				loader: "babel-loader",
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"]
+				use: ["style-loader", "css-loader"],
 			},
 			{
 				test: /\.png$/,
-				loader: "file-loader"
-			}
-		]
+				loader: "file-loader",
+			},
+		],
 	},
 	output: {
 		filename: "[name].js",
-    path: path.resolve(__dirname, "public"),
-	}
-}
+		path: path.resolve(__dirname, "public"),
+	},
+};
