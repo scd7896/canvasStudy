@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 module.exports = {
+	mode: "development",
 	entry: {
 		first: path.resolve(__dirname, "src/rectTutorial/index.ts"),
 		mangdel: path.resolve(__dirname, "src/rectTutorial/MangDel/mangDel.ts"),
