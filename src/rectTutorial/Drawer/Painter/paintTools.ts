@@ -20,11 +20,13 @@ function setDragListeners(ctx: CanvasRenderingContext2D, img: ImageData, draw: a
 	document.addEventListener("mousemove", mouseMoveEventListner, false);
 	document.addEventListener("mouseup", mouseUpEventListner, false);
 }
+let lastImage: Array<ImageData> = [];
 const PaintTools = {
 	brush(e: MouseEvent, ctx: CanvasRenderingContext2D) {
 		ctx.lineCap = "round";
 		ctx.lineJoin = "round";
 		const img = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+		lastImage.push(img);
 		const p = relativePosition(e, ctx.canvas);
 		ctx.beginPath();
 		ctx.moveTo(p.x, p.y);
@@ -35,6 +37,18 @@ const PaintTools = {
 	},
 	line(e: MouseEvent, ctx: CanvasRenderingContext2D) {
 		ctx.lineCap = "round";
+		const img = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+		lastImage.push(img);
+		const p = relativePosition(e, ctx.canvas);
+		setDragListeners(ctx, img, ({ x, y }: { x: number; y: number }) => {
+			ctx.beginPath();
+			ctx.moveTo(p.x, p.y);
+			ctx.lineTo(x, y);
+			ctx.stroke();
+		});
+	},
+	cancel(ctx: CanvasRenderingContext2D) {
+		lastImage.length > 0 && ctx.putImageData(lastImage.pop(), 0, 0);
 	},
 };
 
