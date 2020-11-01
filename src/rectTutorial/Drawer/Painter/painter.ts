@@ -28,10 +28,10 @@ const createCanvas = (width: number, height: number) => {
 	canvas.addEventListener(
 		"mousedown",
 		(e) => {
-			const event = document.createEvent("HTMLEvents");
-			event.initEvent("change", false, true);
-			colorInput.colorInput.dispatchEvent(event);
-			console.log("tete", colorInput.colorInput, paintTool.paintTool);
+			// TODO: 마우스를 눌렀을 때, draw 모드와 select 모드를 구분할 수 있도록
+			// const event = document.createEvent("HTMLEvents");
+			// event.initEvent("change", false, true);
+			// colorInput.colorInput.dispatchEvent(event);
 			paintTools[paintTool.paintTool](e, ctx);
 		},
 		false

@@ -14,7 +14,7 @@ const controls: Contorls = {
 			select.appendChild(elt("option", { value: name }, name));
 		}
 		select.selectedIndex = DEFAULT_TOOL;
-		console.log(select.children[DEFAULT_TOOL].value);
+
 		paintTool.paintTool = select.children[DEFAULT_TOOL].value as PaintToolTypes;
 		select.addEventListener(
 			"change",
@@ -26,7 +26,7 @@ const controls: Contorls = {
 		return label;
 	},
 	color(ctx: CanvasRenderingContext2D) {
-		const input = (colorInput.colorInput = elt("input", { type: "color" })) as any;
+		const input = (colorInput.colorInput = elt("input", { type: "color" }) as HTMLInputElement);
 		const label = elt("label", null, "색: ", input);
 		input.addEventListener(
 			"change",

@@ -12,6 +12,7 @@ function setDragListeners(ctx: CanvasRenderingContext2D, img: ImageData, draw: a
 	};
 	const mouseUpEventListner = (e: MouseEvent) => {
 		ctx.putImageData(img, 0, 0);
+
 		draw(relativePosition(e, ctx.canvas));
 		document.removeEventListener("mousemove", mouseMoveEventListner, false);
 		document.removeEventListener("mouseup", mouseUpEventListner, false);
