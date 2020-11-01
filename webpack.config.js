@@ -7,6 +7,7 @@ module.exports = {
 		ball: path.resolve(__dirname, "src/rectTutorial/Ball/ball.ts"),
 		formuler: path.resolve(__dirname, "src/rectTutorial/Formuler/formuler.ts"),
 		drawer: path.resolve(__dirname, "src/rectTutorial/Drawer/drawer.ts"),
+		fabricTest: path.resolve(__dirname, "src/rectTutorial/Fabric/index.ts"),
 	},
 	resolve: {
 		extensions: [".ts", ".js", ".json", ".css", ".scss"],
